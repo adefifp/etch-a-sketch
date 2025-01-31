@@ -6,6 +6,10 @@ const gridContainer = document.getElementById("gridContainer")
 body.appendChild(button);
 body.appendChild(gridContainer)
 
+function getRandomColor() {
+    return '#' + Math.floor(Math.random()*16777215).toString(16)
+}
+
 button.addEventListener('click', () =>{
     let userInput = prompt("Please enter the dimension of the square grid you'd like.")
     if(userInput === 'null' || userInput <= 0 || userInput ===""){
@@ -27,7 +31,10 @@ button.addEventListener('click', () =>{
             row.appendChild(box)
             box.classList.add("box")
             box.addEventListener("mouseenter", () =>{
-                box.style.backgroundColor = "pink"
+                let currentOpacity = parseFloat(box.style.opacity) || 1;
+                let newOpacity = currentOpacity - 0.1;
+                box.style.backgroundColor = getRandomColor();
+                box.style.opacity = newOpacity;
             })
             box.addEventListener("mouseleave" ,() => {
                 box.style.backgroundColor = "gray"
