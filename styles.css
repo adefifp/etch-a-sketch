@@ -28,7 +28,7 @@ body {
     display:flex;
     background-color: gray;
     width: 40px;
-    height: 40px;
+    aspect-ratio: 1;
     margin: 5px;
     transition: background-color 0.3s ease;
     flex-grow: 1;
